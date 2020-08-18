@@ -1,0 +1,28 @@
+<idea-plugin>
+    <idea-version since-build="2019.3"/>
+
+    <id>com.gade.tdd.yeelight-red-green</id>
+    <name>Yeelight Red Green</name>
+    <vendor>Gade</vendor>
+
+    <description>
+        <![CDATA[
+            A plugin to illuminate your path to TDD with colors.<br>
+        ]]>
+    </description>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <projectListeners>
+        <listener class="com.gade.tdd.YeelightRedGreenTestListener" topic="com.intellij.execution.testframework.sm.runner.SMTRunnerEventsListener"/>
+    </projectListeners>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <applicationConfigurable parentId="tools"
+                                 instance="com.gade.tdd.settings.SettingsConfigurable"
+                                 id="com.gade.tdd.settings.SettingsConfigurable"
+                                 displayName="Yeelight Red Green Plugin Settings"/>
+
+        <applicationService serviceImplementation="com.gade.tdd.settings.SettingsState"/>
+    </extensions>
+</idea-plugin>
